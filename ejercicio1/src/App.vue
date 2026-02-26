@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+import ComponenteCabecera from './components/componenteCabecera.vue';
+import ComponenteMenu from './components/componenteMenu.vue';
+import "./assets/main.css";
+
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <ComponenteCabecera> </ComponenteCabecera>
+  <ComponenteMenu></ComponenteMenu>
+  <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
