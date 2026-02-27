@@ -1,23 +1,27 @@
 <script setup>
 import { ref } from 'vue'
-const emit = defineEmits(['buscar-articulo'])
+import { useRouter } from 'vue-router';
 
-const articuloParaBuscar = ref(null)
+const articuloParaBuscar = ref(null);
+const router = useRouter();
 
-const buscarArticulo = () => {
-    if (articuloParaBuscar.value !== null) {
-        emit('buscar-articulo', {
-            edad: articuloParaBuscar.value
-        })
-    }
+const buscarArticulo = (event) => {
+    event.preventDefault();
+    router.push({
+        name: "ArticuloConcreto",
+        params: {
+            id: articuloParaBuscar.value
+        }
+    });
 }
 </script>
 
 <template>
     <div class="formulario">
         <form>
-            <input type="number" v-model.number="articuloParaBuscar"/>
-            <button type="button" :disabled="articuloParaBuscar === null" @click="buscarArticulo">
+            <label for="">Buscar Artículo</label>
+            <input type="number" v-model.number="articuloParaBuscar" />
+            <button type="submit" :disabled="articuloParaBuscar === null" @click="buscarArticulo">
                 Iniciar
             </button>
         </form>

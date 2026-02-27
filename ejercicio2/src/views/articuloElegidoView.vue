@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router';
 let route = useRoute();
 
 
